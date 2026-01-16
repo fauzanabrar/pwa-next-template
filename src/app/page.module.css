@@ -1,0 +1,853 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.appBarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4vw, 40px);
+  height: 64px;
+}
+
+.appBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.appBarTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appBarBack {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card-subtle);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--ink);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.appBarBack svg {
+  width: 18px;
+  height: 18px;
+}
+
+.appBarBack:hover {
+  border-color: var(--accent);
+}
+
+.appBarBack:active {
+  transform: translateY(1px);
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+}
+
+.brandMarkText {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+
+.main {
+  flex: 1;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  padding: calc(18px + 64px) clamp(18px, 4vw, 40px) 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  animation: floatIn 0.5s ease both;
+}
+
+.heroTitle {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.heroText {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.menuMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.metaBadge {
+  border: 1px solid var(--border);
+  background: var(--card-subtle);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.metaBadgeText {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.menuGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--card);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.menuButton:hover {
+  border-color: var(--accent);
+}
+
+.menuButton:active {
+  transform: translateY(1px);
+}
+
+.menuIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.menuLabel {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.menuSub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.menuActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.adSlot {
+  border: 1px dashed var(--border-strong);
+  border-radius: 16px;
+  background: var(--card-subtle);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.adSlot > div {
+  width: 100%;
+}
+
+.settingsButton {
+  flex: 1 1 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--card);
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.settingsButton:hover {
+  border-color: var(--accent);
+}
+
+.settingsButton:active {
+  transform: translateY(1px);
+}
+
+.menuActionButton {
+  flex: 1 1 160px;
+}
+
+.statusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.statusPill {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  background: var(--card);
+}
+
+.statusPillWarning {
+  border-color: var(--accent-strong);
+  background: var(--card-subtle);
+}
+
+.statusText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  animation: floatIn 0.5s ease both;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.sectionSub {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.questionCard {
+  background: var(--card-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metaPill {
+  background: var(--chip-bg);
+  border: 1px solid var(--border-strong);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--chip-text);
+  font-weight: 600;
+}
+
+.questionText {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.answerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.answerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.answerInput {
+  width: 100%;
+  border: 2px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1.05rem;
+  background: var(--input-bg);
+  color: var(--ink);
+}
+
+.answerInput:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.answerInput:disabled {
+  opacity: 0.6;
+}
+
+.answerDisplay {
+  border: 2px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: var(--input-bg);
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.answerDisplayText {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.answerPlaceholder {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.keypadRow {
+  display: flex;
+  gap: 8px;
+}
+
+.keypadButton {
+  flex: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 12px 0;
+  background: var(--card-subtle);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.keypadButton:active {
+  transform: translateY(1px);
+}
+
+.keypadButtonAlt {
+  background: var(--card);
+}
+
+.keypadButtonDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.keypadButtonText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.keypadButtonAltText {
+  color: var(--muted);
+}
+
+.keypadButtonTextDisabled {
+  color: var(--muted);
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primaryButton {
+  flex: 1 1 160px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryButton:hover {
+  box-shadow: var(--accent-shadow-strong);
+}
+
+.primaryButton:active {
+  transform: translateY(1px);
+}
+
+.secondaryButton {
+  flex: 1 1 160px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  padding: 12px;
+  background: var(--card-subtle);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.secondaryButton:hover {
+  border-color: var(--accent);
+}
+
+.secondaryButton:active {
+  transform: translateY(1px);
+}
+
+.fullWidthButton {
+  width: 100%;
+}
+
+.buttonDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.errorText {
+  color: var(--error-text);
+  font-weight: 600;
+}
+
+.feedback {
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.feedbackCorrect {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-text);
+}
+
+.feedbackWrong {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+}
+
+.feedbackText {
+  font-weight: 600;
+}
+
+.sessionRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.sessionLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.sessionValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.sessionHint {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.summaryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 20px;
+}
+
+.summaryCard {
+  flex: 1 1 140px;
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+  background: var(--card-subtle);
+  padding: 12px;
+}
+
+.summaryLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.summaryValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 6px;
+}
+
+.settingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.settingInfo {
+  flex: 1 1 200px;
+}
+
+.settingLabel {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.settingHint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepperButton {
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 6px 12px;
+  background: var(--card-subtle);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.stepperButton:active {
+  transform: translateY(1px);
+}
+
+.stepperButtonText {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepperValue {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.themeToggle {
+  margin-top: 18px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 6px 12px 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.themeToggle:hover {
+  border-color: var(--accent);
+}
+
+.themeToggle:active {
+  transform: translateY(1px);
+}
+
+.themeToggleDark .themeIcon {
+  background: var(--bg-accent);
+  color: var(--accent);
+}
+
+.themeToggleDark .themeSwitch {
+  background: var(--accent);
+}
+
+.themeToggleDark .themeKnob {
+  transform: translateX(16px);
+  background: var(--card-subtle);
+}
+
+.themeIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  display: grid;
+  place-items: center;
+}
+
+.themeIcon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.themeText {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.themeLabel {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.themeName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.themeSwitch {
+  margin-left: auto;
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--border);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.themeKnob {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--card);
+  transition: transform 0.2s ease;
+}
+
+.dangerButton {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 18px;
+  background: var(--card-subtle);
+  color: var(--error-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dangerButton:active {
+  transform: translateY(1px);
+}
+
+.statBar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border-strong);
+  overflow: hidden;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.statBarFill {
+  height: 100%;
+  background: var(--accent);
+}
+
+.statGrid {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 720px) {
+  .statGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.statCard {
+  background: var(--card-subtle);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: floatIn 0.6s ease both;
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.statTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.levelBadge {
+  background: var(--level-bg);
+  color: var(--level-text);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.statMetrics {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metricLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.metricValue {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.metricDivider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-strong);
+}
+
+.dotRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border-strong);
+}
+
+.dotCorrect {
+  background: var(--dot-ok);
+}
+
+.dotWrong {
+  background: var(--dot-bad);
+}
+
+.dotEmpty {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .card,
+  .statCard {
+    animation: none;
+  }
+}
